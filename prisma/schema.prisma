@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model HistoryProcess {
+  id                    Int
+  numProcess_HistProc   Int @default(0)
+  comment_HistProc      String
+  accountName_HistProc  String
+  status_HistProc       String
+  currentStage_HistProc String
+  nextStage_HistProc    String
+
+  @@id([id, numProcess_HistProc])
+  @@map("HistoryProcess")
+}

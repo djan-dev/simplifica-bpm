@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: simplifica-app
+    ports:
+      - "3000:3000"
+      - "5555:5555"
+    volumes:
+      - .:/home/node/app
+  db:
